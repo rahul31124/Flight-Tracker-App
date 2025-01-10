@@ -1,77 +1,98 @@
-# ✈️ Flight Tracker App
+# ✈️ **Flight Tracker App**
 
-An innovative Android Flight Tracker App designed to provide users with real-time flight tracking and aviation-related content. The app utilizes **Google Maps** to display live flight data, offering a seamless and interactive experience for aviation enthusiasts and travelers alike. 🌍✈️
+**An innovative and cutting-edge Android Flight Tracker App** designed to provide users with **real-time flight tracking**, personalized **aviation-related content**, and an immersive travel experience. 🌍✈️ With the integration of **Google Maps** and dynamic **live flight data**, this app stands out by offering a seamless and highly interactive experience for **aviation enthusiasts** and **frequent travelers** alike. 🛫📲
 
-## ✨ Key Features
+## ✨ **Key Features**
 
-### 📡 Flight Tracking
-- View live flights on an interactive Google Map. 🌍🛫
-- Access detailed flight information, including flight status, arrival/departure times, and actual aircraft images fetched from the web. 🛬🛫
+### 📡 **Real-Time Flight Tracking**
+- View live flights on an interactive **Google Map** in real-time. 🌍🛫
+- Access **detailed flight information** including status updates, actual aircraft images, and precise **arrival/departure times** fetched dynamically from various APIs. 🛬🛫
+- Get personalized updates on flight routes, delays, and more. 🚀
 
-### 💸 Cheap Tickets Finder
-- Discover cheaper flight tickets available on a selected route. ✈️💰
-- Redirects users to the airline's website using **ChromeTabs** for smooth and secure booking. 💻🔗
+### 💸 **Cheap Tickets Finder**
+- Discover **cheaper flight tickets** available on selected routes. ✈️💰
+- **Seamless booking experience** with redirection to the airline's official website using **ChromeTabs** for smooth, secure transactions. 💻🔗
 
-### 📰 Aviation News
-- Stay informed with the latest aviation-related news directly within the app. 📲📰
+### 📰 **Latest Aviation News**
+- Stay ahead with **up-to-date aviation news** directly within the app, ensuring you’re always in the loop about the latest happenings in the skies. 📲📰
 
-### 🔍 Flight Search by Number
-- Search and track any flight by its flight number to receive real-time updates. 🛫🔍
+### 🔍 **Flight Search by Number**
+- Easily search and track any flight by its flight number and receive **real-time updates**. 🛫🔍
 
-### ✈️ Airline Filter
-- Filter flights by airline to explore specific aircraft, catering to aviation enthusiasts. ✈️🎯
+### ✈️ **Airline Filter**
+- **Filter flights by airlines** and explore specific aircraft currently flying in the sky under that airline. ✈️🎯
+- Users can **search for any airline** and get a detailed list of all the **aircraft** currently in the air from that airline, offering an exciting feature for aviation enthusiasts who love exploring different airlines and their fleet. 🛫🔍
+- **Real-time data** ensures the list of aircraft is up-to-date, showcasing flights in real-time and their flight status, such as active flights, estimated times, and more. 🌐🛬
 
-### 🌐 Nearby Flights
-- Discover flights currently flying in your vicinity, providing a localized flight-tracking experience. 🚀📍
 
-## 🛠️ Tech Stack
+### 🌐 **Nearby Flights**
+- Discover flights **currently flying near you**, providing a localized and dynamic flight-tracking experience. 🚀📍
 
-### 📱 Android Development
-- **Kotlin**, **XML**, and **Jetpack Compose** (for specific UI components)
+---
 
-### 🌐 Backend & APIs
-- Integration with 4 different APIs to fetch real-time flight data. 🌍🚀
-- Custom backend server built with **Node.js**, **Express.js**, and **MongoDB** for authentication. 🔐💻
-- Authentication secured using **JWT tokens**, and the server is deployed on **Heroku**. ☁️
+## 🛠️ **Tech Stack**
 
-### 🎨 UI/UX Design
-- Custom UI components designed using **Canva** for a polished user interface. ✨🎨
+### 📱 **Android Development**
+- Built using **Kotlin**, **XML**, and **Jetpack Compose** for a highly dynamic and responsive UI.
 
-### ⚡ Asynchronous Programming
-- Used **Kotlin Coroutines** for efficient background processing:
+### 🌐 **Backend & APIs**
+- Seamless integration with **4 different APIs** to fetch live flight data, ensuring real-time information is always at your fingertips. 🌍🚀
+- **Custom backend server** built with **Node.js**, **Express.js**, and **MongoDB** for user authentication and data management. 🔐💻
+- Strong authentication secured using **JWT tokens**, with the backend deployed on **Heroku** for optimal scalability. ☁️
+
+### 🎨 **UI/UX Design**
+- **Custom-designed UI components** created using **Canva** to deliver an aesthetically polished, modern, and user-friendly experience. ✨🎨
+
+### ⚡ **Asynchronous Programming**
+- Leveraged **Kotlin Coroutines** for efficient background processing, ensuring smooth and responsive UI:
   - **IO Dispatcher** for API calls and network tasks. 🔄🌐
-  - **Main Dispatcher** for updating UI smoothly without blocking the main thread. 🖥️💨
+  - **Main Dispatcher** for UI updates without blocking the main thread. 🖥️💨
 
-### 🏛️ Architectural Pattern
-- Followed the **MVVM (Model-View-ViewModel)** architecture for clear separation of concerns and easier scalability. 🧑‍💻🔍
+### 🏛️ **Architectural Pattern**
+- Built using **MVVM (Model-View-ViewModel)** architecture, ensuring clear separation of concerns for better maintainability and scalability. 🧑‍💻🔍
 
-## 📸 Screenshots
+---
+
+## 📸 **Screenshots**
 
 | 🔑 Login              | 🏠 Home Screen       | 🌍 Live Tracking Map |
 |----------------------|---------------------|----------------------|
-| ![Login](Login.jpg)   | ![Home Screen](Home.jpg) | ![Live Tracking Map](Live Tracking Map.jpg) |
+| ![Login](Login.jpg)   | ![Home Screen](Home.jpg) | ![Live Tracking Map](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Live%20Tracking%20Map.jpg) |
 
 | 🗺️ Map               | 🗺️ Map 2             | 🛫 Flight Information |
 |----------------------|----------------------|----------------------|
-| ![Map](Map.jpg)       | ![Map 2](Map2.jpg)    | ![Flight Information](Flight Information.jpg) |
+| ![Map](Map.jpg)       | ![Map 2](Map2.jpg)    | ![Flight Information](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Flight%20Information.jpg) |
 
 | 💸 Flight Ticket Search | 🖥️ ChromeTab       | 📰 Aviation News       |
 |------------------------|--------------------|-----------------------|
-| ![Flight Ticket Search](Flight Ticket Search.jpg) | ![ChromeTab](ChromeTab.jpg) | ![Aviation News](Aviation News.jpg) |
+| ![Flight Ticket Search](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Flight%20Ticket%20Search.jpg) | ![ChromeTab](ChromeTab.jpg) | ![Aviation News](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Aviation%20News.jpg) |
 
 | ✈️ Airline Search     |
 |----------------------|
 | ![Airline Search](Airlines.jpg)  |
 
-## 🚀 Future Enhancements
-- 🛎️ **Push notifications** for live flight status updates will be implemented. 📲✈️
-- 🔧 **Implementation of Dependency Injection** using **Dagger Hilt** will be done for a modular and maintainable codebase. 🛠️
+---
 
-## 📬 Contact
-For any queries or feedback, feel free to connect:
-
-- 📧 **Email:** rdass8794@gmail.com
+## 🚀 **Future Enhancements**
+- **Push Notifications** for live flight status updates to ensure users never miss an important flight detail. 📲✈️
+- **Dependency Injection** with **Dagger Hilt** will be implemented for better modularity and easier code maintenance. 🛠️
 
 ---
 
-**Crafted with precision and exceptional workmanship.** 🛠️✨
+## 📬 **Contact**
+For any queries, feedback, or collaboration opportunities, feel free to reach out:
+
+- 📧 **Email:** [rdass8794@gmail.com](mailto:rdass8794@gmail.com)
+
+
+
+
+
+
+
+### ✨ Summary
+- This app combines **real-time flight tracking** with **aviation-related content**, offering users a one-stop solution for their travel and aviation needs. 
+- **Seamless integration with Google Maps** and **flight tracking** provides a truly immersive experience.
+- With advanced features like **Nearby Flights** and **Cheap Tickets Finder**, this app is designed not just for travel, but for aviation enthusiasts who want to keep track of flights and stay updated on aviation news.
+
+- **Crafted with precision, passion, and exceptional workmanship.** 🛠️✨
