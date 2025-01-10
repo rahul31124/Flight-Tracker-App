@@ -1,0 +1,74 @@
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/edittextbg"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/airlinelooogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/CircularImageView" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/airlinename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/Black"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:text="AirLines Name" />
+
+                <TextView
+                    android:id="@+id/decelerate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/Purple"
+                    android:text="CallSign"
+                    android:fontFamily="@font/merriweathersans_regular"
+                    android:layout_marginTop="4dp" />
+                <TextView
+                    android:id="@+id/speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/Red"
+                    android:text="Speed"
+                    android:fontFamily="@font/merriweathersans_regular"
+                    android:layout_marginTop="4dp" />
+
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/vieewdetails"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/righyellow"
+                android:background="@null"
+                android:contentDescription="Save"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+

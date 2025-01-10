@@ -1,0 +1,47 @@
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       xmlns:tools="http://schemas.android.com/tools"
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:background="@drawable/edittextbg"
+       android:layout_margin="6dp"
+       android:orientation="vertical">
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="168dp"
+           android:layout_margin="5dp"
+           android:id="@+id/imgrlnew"
+           android:scaleType="centerCrop"
+           android:src="@drawable/testingfligh" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/newstitle"
+            android:fontFamily="@font/merriweathersans_bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="Passenger plane struck by bullet at Texas airport"/>
+
+
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="40dp"
+               android:id="@+id/readnews"
+               android:background="@drawable/edittextbg"
+               android:fontFamily="@font/merriweathersans_bold"
+               android:layout_margin="12dp"
+               android:gravity="center"
+               android:text="READ"
+               android:textColor="@color/LightGreen"
+               android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+

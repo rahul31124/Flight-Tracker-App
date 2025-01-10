@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientpurple">
+
+
+    <ImageButton
+        android:id="@+id/backbtndetails"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="355dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/backb"
+        android:contentDescription="backbtn"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_arrow_back_ios_new_24"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/depart"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:fontFamily="@font/merriweathersans_semibold"
+            android:text="DEP"
+            android:textColor="@color/Black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/arrival"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:fontFamily="@font/merriweathersans_semibold"
+            android:text="       ARV"
+            android:textColor="@color/Black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="41dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/takeoff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/merriweathersans_bold"
+            android:text="-----------"
+            android:textColor="@color/Black"
+            android:textSize="28sp"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/landingbg" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:background="@drawable/safetydetaiiiols"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/newcannbox"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/Gold"
+
+            >
+
+            <TextView
+                android:id="@+id/savebutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merriweathersans_bold"
+                android:gravity="center"
+                android:text="Flight Information"
+                android:textColor="@color/White"
+                android:textSize="23sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Blue"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="17sp"
+                        android:text="Aircraft Model:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/aircraftmodel"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/LightGreen"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="Airbus A320:"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="115dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Blue"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="14sp"
+                        android:text="Arrival Terminal:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/arivalterminal"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/LightGreen"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="2"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:text="No.Of Seats:"
+                        android:textColor="@color/White"
+                        android:textSize="17sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/numberseat"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Blue"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="180:"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/White"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="17sp"
+                        android:text="Altittude:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/ageaircraft"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Blue"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="12 Years:"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="@color/Gold"
+            app:cardCornerRadius="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merriweathersans_bold"
+                android:gravity="center"
+                android:text="Departure"
+                android:textColor="@color/Purple"
+                android:textSize="23sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/White"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="17sp"
+                        android:text="Airport:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/depairport"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/LightGreen"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="NAW (VTSC):"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="165dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/White"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="17sp"
+                        android:text="Status:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/depstatus"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/LightGreen"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="On Time"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:text="Scheduled Time:"
+                        android:textColor="@color/White"
+                        android:textSize="17sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/deptime"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Blue"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="2024-12-07 12:30 +07:00"
+                        />
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="@color/Gold"
+            app:cardCornerRadius="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merriweathersans_bold"
+                android:gravity="center"
+                android:text="Arrival"
+                android:textColor="@color/LimeGreen"
+                android:textSize="23sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/White"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="17sp"
+                        android:text="Airport:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/arrairport"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/LightGreen"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="NAW (VTSC):"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="165dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/White"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:textSize="17sp"
+                        android:text="Status:"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/arrstatus"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/LightGreen"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="On Time"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merriweathersans_bold"
+                        android:text="Scheduled Time:"
+                        android:textColor="@color/White"
+                        android:textSize="17sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/arrtime"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Blue"
+                        android:fontFamily="@font/merriweathersans_regular"
+                        android:textSize="17sp"
+                        android:text="2024-12-07 12:30 +07:00"
+                        />
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

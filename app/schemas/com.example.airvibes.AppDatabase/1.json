@@ -1,0 +1,114 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0207295d8b21655eeb02e068e2c103f7",
+    "entities": [
+      {
+        "tableName": "categories",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cname` TEXT NOT NULL, `image_url` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cname",
+            "columnName": "cname",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "image_url",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_categories_cname_image_url",
+            "unique": true,
+            "columnNames": [
+              "cname",
+              "image_url"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_categories_cname_image_url` ON `${TABLE_NAME}` (`cname`, `image_url`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "webcategoriess",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idws` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `wnames` TEXT NOT NULL, `wimage_urls` TEXT NOT NULL, `prices` TEXT NOT NULL, `booklink` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idws",
+            "columnName": "idws",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wname",
+            "columnName": "wnames",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wimageUrl",
+            "columnName": "wimage_urls",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prices",
+            "columnName": "prices",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "booklink",
+            "columnName": "booklink",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "idws"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_webcategoriess_wnames_wimage_urls_prices_booklink",
+            "unique": true,
+            "columnNames": [
+              "wnames",
+              "wimage_urls",
+              "prices",
+              "booklink"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_webcategoriess_wnames_wimage_urls_prices_booklink` ON `${TABLE_NAME}` (`wnames`, `wimage_urls`, `prices`, `booklink`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0207295d8b21655eeb02e068e2c103f7')"
+    ]
+  }
+}

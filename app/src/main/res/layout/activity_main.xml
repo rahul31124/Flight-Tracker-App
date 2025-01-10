@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Fragment Container to dynamically load fragments -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+
+    <!-- Bottom Navigation Bar -->
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:abb_selectedTabType="text"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorMargin="16dp"
+        app:abb_indicatorHeight="4dp"
+        app:abb_tabs="@menu/bottom_nav_menu"
+        app:abb_selectedIndex="1"
+        app:abb_rippleEnabled="false"
+        app:abb_tabTextColor="@color/LightGreen"
+        app:abb_tabSelectedTextColor="@color/Black"
+        app:abb_indicatorColor="@color/Black"
+        app:abb_animationDuration="300"
+        app:abb_tabAnimation="slide"
+        app:abb_tabAnimationSelected="fade" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

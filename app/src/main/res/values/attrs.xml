@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="AnimatedBottomBar">
+        <attr name="abb_tabSelectedTextColor" format="color" />
+        <attr name="abb_tabBackground" format="reference" />
+        <attr name="abb_tabSelectedBackground" format="reference" />
+        <attr name="abb_tabTextColor" format="color" />
+    </declare-styleable>
+    <color name="tab_background">#E0E0E0</color>
+    <color name="tab_selected_background">#FF6200EE</color>
+
+</resources>

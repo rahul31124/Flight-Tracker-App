@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/homiee"
+        android:title="Home" />
+    <item
+        android:id="@+id/mapicon"
+        android:icon="@drawable/mabaircraft"
+        android:title="Map" />
+
+    <item
+        android:id="@+id/safety"
+        android:icon="@drawable/settings"
+        android:title="Settings" />
+
+
+</menu>
