@@ -102,8 +102,6 @@ For any queries, feedback, or collaboration opportunities, feel free to reach ou
 
 © 2025 Rahul Das. All rights reserved.
 
-This project is the exclusive property of the author. Unauthorized copying, redistribution, or use of this code is strictly prohibited.
-
 For permissions or inquiries, please contact: **rdass8794@gmail.com**
 
 ---
