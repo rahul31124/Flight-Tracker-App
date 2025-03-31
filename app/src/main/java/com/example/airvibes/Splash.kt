@@ -56,7 +56,6 @@ fun AirVibesCard() {
                 .padding(12.dp),
             shape = RoundedCornerShape(20.dp),
             backgroundColor = Color.White,
-            elevation = 8.dp
         ) {
             Row(
                 modifier = Modifier
@@ -91,6 +90,7 @@ fun AirVibesCard() {
                     color = colorResource(id = R.color.MediumBlue),
                     fontFamily = FontFamily(Font(R.font.merriweathersans_semibold))
                 )
+
             }
         }
     }

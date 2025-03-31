@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="710dp"
         android:layout_marginTop="129dp"
         android:background="@drawable/safetydetaiiiols"
         android:orientation="vertical"
@@ -101,7 +101,7 @@
             android:fontFamily="@font/merriweathersans_bold"
             android:textSize="29sp"
             android:textColor="@color/LightGreen"
-            android:background="@drawable/edittextbg"
+            android:background="@drawable/searchbackground"
             android:gravity="center"
             />
         <TextView
@@ -153,7 +153,7 @@
             android:fontFamily="@font/merriweathersans_bold"
             android:textSize="20sp"
             android:textColor="@color/LightGreen"
-            android:background="@drawable/edittextbg"
+            android:background="@drawable/searchbackground"
             android:gravity="center"
             />
 

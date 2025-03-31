@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AirVibes"
         tools:targetApi="31">
         <activity
+            android:name=".AirlineNumber"
+            android:exported="false" />
+        <activity
             android:name=".AviationNews"
             android:exported="false" />
         <activity

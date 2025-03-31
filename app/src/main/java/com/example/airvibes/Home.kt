@@ -56,6 +56,10 @@ class HomeFragment : Fragment() {
                     val intent = Intent(activity, AviationNews::class.java)
                     startActivity(intent)
                 }
+                if (category.cname == "Number") {
+                    val intent = Intent(activity, AirlineNumber::class.java)
+                    startActivity(intent)
+                }
                 if (category.cname == "Nearby") {
                     getCurrentLocation { latitude, longitude ->
                         val bundle = Bundle().apply {

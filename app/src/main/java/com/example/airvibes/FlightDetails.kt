@@ -124,18 +124,11 @@ class FlightDetails : AppCompatActivity() {
 
 
 
-
-
-
-
-
-        // Start the Lottie animation
         binding.loadingAnimation.apply {
             visibility = View.VISIBLE
             playAnimation()
         }
 
-        // Check if the image URL is already cached
         if (imageCache.containsKey(reg)) {
             val cachedUrl = imageCache[reg]
             Log.d("loggy", "Image URL loaded from cache: $cachedUrl")
@@ -173,11 +166,10 @@ class FlightDetails : AppCompatActivity() {
                 })
                 .into(binding.imgaircraft)
         } else {
-            // Use coroutine to load the image URL asynchronously
             lifecycleScope.launch {
                 val imageUrl = fetchImageUrlAsync(reg)
                 if (!isDestroyed && imageUrl != null) {
-                    imageCache[reg] = imageUrl // Cache the image URL
+                    imageCache[reg] = imageUrl
                     Glide.with(this@FlightDetails)
                         .load(imageUrl)
                         .listener(object : RequestListener<Drawable> {
@@ -221,16 +213,16 @@ class FlightDetails : AppCompatActivity() {
             }
         }
 
-        // Set additional flight details
+
         binding.depart.text = "(${flightDetail.departure.airport.iata})"
         binding.arrival.text = "(${flightDetail.arrival.airport.iata})"
         Log.d("loggy", "Departure and arrival text set on UI.")
     }
 
 
-    // Coroutine function to fetch image URL
+
     private suspend fun fetchImageUrlAsync(reg: String): String? = withContext(Dispatchers.Main) {
-        val webView = WebView(this@FlightDetails)  // WebView must be created on the Main thread
+        val webView = WebView(this@FlightDetails)
         val uri = "https://www.planespotters.net/photos/reg/$reg"
         Log.d("loggy", "Loading URL in WebView: $uri")
 
@@ -244,10 +236,9 @@ class FlightDetails : AppCompatActivity() {
                     super.onPageFinished(view, url)
                     Log.d("loggy", "Page loaded in WebView: $url")
 
-                    // Extract image URL using JavaScript
                     evaluateJavascript(
                         "document.querySelector('img.photo_card__photo').src",
-                        ValueCallback { value ->
+                      { value ->
                             deferredImageUrl.complete(
                                 if (value.isNotEmpty()) value.replace("\"", "") else null
                             )
@@ -256,8 +247,6 @@ class FlightDetails : AppCompatActivity() {
                 }
             }
         }
-
-        // Load the URL and wait for the result
         webView.loadUrl(uri)
         val result = deferredImageUrl.await()
 
