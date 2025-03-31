@@ -57,7 +57,7 @@
 
 | 🔑 Login              | 🏠 Home Screen       | 🌍 Live Tracking Map |
 |----------------------|---------------------|----------------------|
-| ![Login](Login.jpg)   | ![Home Screen](Home.jpg) | ![Live Tracking Map](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Live%20Tracking%20Map.jpg) |
+| ![Login](Login.png)   | ![Home Screen](Home.jpg) | ![Live Tracking Map](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Live%20Tracking%20Map.jpg) |
 
 | 🗺️ Map               | 🗺️ Map 2             | 🛫 Flight Information |
 |----------------------|----------------------|----------------------|
