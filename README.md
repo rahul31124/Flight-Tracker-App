@@ -57,7 +57,7 @@
 
 | 🔑 Login              | 🏠 Home Screen       | 🌍 Live Tracking Map |
 |----------------------|---------------------|----------------------|
-| ![Login](Login.png)   | ![Home Screen](Home.jpg) | ![Live Tracking Map](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Live%20Tracking%20Map.jpg) |
+| ![Login](Login.jpg)   | ![Home Screen](Home.jpg) | ![Live Tracking Map](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Live%20Tracking%20Map.jpg) |
 
 | 🗺️ Map               | 🗺️ Map 2             | 🛫 Flight Information |
 |----------------------|----------------------|----------------------|
@@ -69,7 +69,7 @@
 
 | ✈️ Airline Search     | ✈️ Airline Search 2   | ✈️ Airline Search 3   |
 |----------------------|----------------------|-----------------------|
-| ![Airline Search](Airlines.jpg) | ![Airline Search 2](Airlines2.jpg) | ![Airline Search 3](Airlines3.jpg) |
+| ![Airline Search](https://github.com/rahul31124/Flight-Tracker-App/blob/main/Airline%20search.jpg) | ![Airline Search 2](https://github.com/rahul31124/Flight-Tracker-App/blob/main/Airline%20Search..jpg) | ![Airline Search 3](Airlines2.jpg) |
 
 
 
