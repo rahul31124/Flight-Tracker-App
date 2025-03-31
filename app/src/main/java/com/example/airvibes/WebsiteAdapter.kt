@@ -40,7 +40,6 @@ class BestFlightsAdapter(
         private val tvBook: TextView = itemView.findViewById(R.id.book)
 
         fun bind(bestFlight: BestFlight) {
-            // Display airline and price from the first flight in the "flights" list
             val firstFlight = bestFlight.flights.firstOrNull()
             if (firstFlight != null) {
                 tvAirline.text = firstFlight.airline
@@ -69,7 +68,7 @@ class BestFlightsAdapter(
 
             tvPrice.text = "₹${bestFlight.price}"
 
-            // Handle "book" click
+
             tvBook.setOnClickListener {
                 callAnotherAPI(bestFlight, it.context)
             }
@@ -89,15 +88,15 @@ class BestFlightsAdapter(
                     if (response.isSuccessful) {
                         val flightResponse: BookingDataClass? = response.body()
 
-                        // Check if the flightResponse is not null and proceed
+
                         flightResponse?.let {
-                            // Extract BookingOption -> Together -> BookingRequest -> post_data
+
                             val postData =
                                 it.booking_options.firstOrNull()?.together?.booking_request?.post_data
-                            val url = "https://www.google.com/travel/clk/f?$postData" // Concatenate the postData with the base URL
+                            val url = "https://www.google.com/travel/clk/f?$postData"
                             openLinkInChromeTab(context, url)
 
-                            // Log or handle the postData as needed
+
                             postData?.let {
                                 Log.d("APIYY", "Post Data: $postData")
                             } ?: Log.e("APIYY", "Post data is null")
@@ -121,27 +120,25 @@ class BestFlightsAdapter(
         }
 
         private fun openLinkInChromeTab(context: Context, url: String) {
-            // Check if the URL is valid
+
             val uri = Uri.parse(url)
 
-            // Create a builder for Chrome Custom Tabs
+
             val builder = CustomTabsIntent.Builder()
 
-            // Customize the Chrome tab if needed (set toolbar color, etc.)
-            builder.setToolbarColor(ContextCompat.getColor(context, R.color.white))  // Use the passed context
 
-            // Build and launch the Chrome Custom Tab
+            builder.setToolbarColor(ContextCompat.getColor(context, R.color.white))
+
+
             val customTabsIntent = builder.build()
             customTabsIntent.launchUrl(context, uri)
         }
         fun convertTo12HourFormat(timeString: String): String {
-            // Input date format
             val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-            inputFormat.timeZone = TimeZone.getTimeZone("UTC") // Assuming the input time is in UTC
+            inputFormat.timeZone = TimeZone.getTimeZone("UTC")
 
-            // Output date format in 12-hour format with AM/PM
             val outputFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
-            outputFormat.timeZone = TimeZone.getTimeZone("Asia/Kolkata") // Set to Indian Standard Time
+            outputFormat.timeZone = TimeZone.getTimeZone("Asia/Kolkata")
 
             return try {
                 val date = inputFormat.parse(timeString)

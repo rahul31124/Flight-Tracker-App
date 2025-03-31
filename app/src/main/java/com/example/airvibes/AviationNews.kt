@@ -29,7 +29,7 @@ class AviationNews : AppCompatActivity() {
             recyclerView.adapter = newsAdapter
         })
 
-        // Fetch news data
+
         newsViewModel.fetchNews("india-aviation-airlines")
     }
 }

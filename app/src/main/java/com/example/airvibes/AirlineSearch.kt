@@ -17,11 +17,11 @@ import kotlinx.coroutines.withContext
 
 class AirlineSearch : AppCompatActivity() {
 
-    private lateinit var airlineMap: Map<String, String> // Map to hold callsign-to-airline name
+    private lateinit var airlineMap: Map<String, String>
     private lateinit var spinner: Spinner
     private lateinit var airlineWebsiteMap: Map<String, String>
     private lateinit var binding:ActivityAirlineSearchBinding
-    private lateinit var flightsAdapter: FlightAdapter // Assuming you have an adapter to display flights in RecyclerView
+    private lateinit var flightsAdapter: FlightAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +33,12 @@ class AirlineSearch : AppCompatActivity() {
             onBackPressed()
         }
 
-        // Initialize spinner and adapter
+
         spinner = findViewById(R.id.spinner)
 
 
 
-        // Initialize the map of callsigns and airline names
+
         airlineMap = mapOf(
             // International Airlines
             "AIC" to "Air India",         // India
@@ -76,8 +76,7 @@ class AirlineSearch : AppCompatActivity() {
             "IAD" to "AirAsia India",     // AirAsia India (Indian)
             "AKJ" to "Akasa Air",         // Akasa Air (Indian)
             "BL" to "Alliance Air",      // Alliance Air (Indian)
-            "AXB" to "Air India Express", // Air India Express (Indian) // TATA Group
-   // Indian Airlines
+            "AXB" to "Air India Express", // Air India Express (Indian)
         )
 
         airlineWebsiteMap = mapOf(
@@ -116,13 +115,13 @@ class AirlineSearch : AppCompatActivity() {
             "Indian Airlines" to "https://www.indianairlines.in",
             "Air India Express" to "https://www.airindiaexpress.in"
         )
-        // Set the spinner adapter with airline names
+
         val airlinesList = airlineMap.values.toList()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, airlinesList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
-        // Call the API and filter flights based on the selected airline
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -135,17 +134,16 @@ class AirlineSearch : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Handle case where nothing is selected if needed
+
             }
         }
     }
 
-    // Fetch and filter flights based on the selected airline
     private fun fetchAndDisplayFlights(selectedAirline: String) {
         Log.d(
             "AirlineSearchyy",
             "Fetching flights for airline: $selectedAirline"
-        ) // Log selected airline
+        )
         lifecycleScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
@@ -162,7 +160,7 @@ class AirlineSearch : AppCompatActivity() {
                     Log.d("AirlineSearchyy", "API response contains ${response.states.size} flights")
                 }
 
-                // Filter the flights based on selected airline
+
                 val filteredFlights = filterFlightsByAirline(response.states, selectedAirline,)
                 Log.d("AirlineSearchyy", "Filtered flights count: ${filteredFlights.size}")
 
@@ -171,7 +169,6 @@ class AirlineSearch : AppCompatActivity() {
                 val airlineWebsite = airlineWebsiteMap [selectedAirline]
                 Log.d("AirlineSearchyy", "Selected airline callsign: $selectedAirlineCallsign")
                 Log.d("AirlineSearchwebsite", "Retrieved airline website: $airlineWebsite")
-                // Update RecyclerView with filtered flights and selected airline
                 flightsAdapter = FlightAdapter(filteredFlights, selectedAirline, airlineWebsite)
                 findViewById<RecyclerView>(R.id.airlinerecyler).apply {
                     layoutManager = LinearLayoutManager(this@AirlineSearch)
@@ -184,23 +181,22 @@ class AirlineSearch : AppCompatActivity() {
         }
     }
 
-    // Filter flights by airline based on selected airline name and callsign map
+
     private fun filterFlightsByAirline(flights: List<List<Any>>, selectedAirline: String): List<Flight> {
         Log.d("AirlineSearchyy", "Filtering flights for selected airline: $selectedAirline")
 
-        // Find the callsign prefix corresponding to the selected airline
         val selectedAirlineCallsignPrefix = airlineMap.entries.find { it.value == selectedAirline }?.key
         Log.d("AirlineSearchyy", "Selected airline callsign prefix: $selectedAirlineCallsignPrefix")
 
-        // If the airline's callsign prefix is found, filter flights based on the prefix of the callsign
+
         return if (selectedAirlineCallsignPrefix != null) {
             flights.mapNotNull { flight ->
-                // Extract the prefix from the callsign (first 2 or 3 characters, assuming it's a string)
 
 
-                val flightCallsignPrefix = (flight[1] as String).takeWhile { it.isLetter() }.take(3) // Get first 3 characters
 
-// Log the selected airline, its prefix, and the extracted flight callsign prefix
+                val flightCallsignPrefix = (flight[1] as String).takeWhile { it.isLetter() }.take(3)
+
+
                 Log.d(
                     "AirlineSearchyy",
                     "Selected Airline: $selectedAirline; Callsign Prefix from Map: $selectedAirlineCallsignPrefix; " +
@@ -209,7 +205,6 @@ class AirlineSearch : AppCompatActivity() {
 
 
 
-                // If the callsign prefix matches the selected airline's prefix, return a Flight object
                 if (flightCallsignPrefix == selectedAirlineCallsignPrefix) {
                     try {
                         val latitude = (flight[6] as? Number)?.toDouble() ?: 0.0
@@ -223,28 +218,28 @@ class AirlineSearch : AppCompatActivity() {
                             "Parsed flight details - Latitude: $latitude, Longitude: $longitude, Altitude: $altitude, Velocity: $velocity, Direction: $direction"
                         )
 
-                        // Return the flight object with parsed data
+
                         Flight(
-                            callsign = flight[1] as String, // Full callsign
-                            latitude = latitude,           // Safely parsed latitude
-                            longitude = longitude,         // Safely parsed longitude
-                            altitude = altitude,           // Safely parsed altitude
-                            velocity = velocity,           // Safely parsed velocity
-                            direction = direction          // Safely parsed direction
+                            callsign = flight[1] as String,
+                            latitude = latitude,
+                            longitude = longitude,
+                            altitude = altitude,
+                            velocity = velocity,
+                            direction = direction
                         )
                     } catch (e: Exception) {
                         Log.e("AirlineSearchyy", "Error parsing flight data", e)
-                        null // Return null if there is an error while parsing
+                        null
                     }
                 }
                 else {
                     Log.d("AirlineSearchyy", "Flight ${flight[1]} does not match selected airline prefix")
-                    null  // Exclude flights that don't match the selected airline's callsign prefix
+                    null
                 }
             }
         } else {
             Log.w("AirlineSearchyy", "No matching callsign prefix found for selected airline")
-            emptyList()  // Return empty list if no matching callsign is found
+            emptyList()
         }
     }
 

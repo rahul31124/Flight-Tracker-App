@@ -14,9 +14,6 @@
         android:layout_marginTop="20dp"
         android:background="@color/white">
 
-        <!-- Back Button -->
-
-        <!-- Title TextView -->
         <ImageButton
             android:id="@+id/backbtnlist"
             android:layout_width="58dp"

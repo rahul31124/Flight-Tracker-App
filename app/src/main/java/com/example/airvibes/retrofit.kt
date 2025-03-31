@@ -44,7 +44,7 @@ object RetrofitInstance3 {
     val api: FlightsApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(okHttpClient)  // Use the OkHttpClient with logging
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(FlightsApiService::class.java)

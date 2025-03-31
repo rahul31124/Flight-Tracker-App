@@ -31,7 +31,6 @@ class NewsViewModel : ViewModel() {
                     }
                 }
             } catch (e: Exception) {
-                // Handle error (e.g., network failure)
                 e.printStackTrace()
             }
         }

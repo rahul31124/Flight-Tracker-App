@@ -65,7 +65,6 @@ class FlightDetails : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Log the request URL
                 val requestUrl = "https://api.magicapi.dev/api/v1/aedbx/aerodatabox/flights/CallSign/$callSign?withAircraftImage=false&withLocation=false"
                 Log.d(TAG, "Requesting URL: $requestUrl")
 
@@ -75,7 +74,6 @@ class FlightDetails : AppCompatActivity() {
                     apiKey = apiKey
                 )
 
-                // Log the API response
                 Log.d(TAG, "API response received: $response")
 
                 withContext(Dispatchers.Main) {
@@ -88,14 +86,12 @@ class FlightDetails : AppCompatActivity() {
                     }
                 }
             } catch (e: HttpException) {
-                // Handle HTTP exceptions (400, 500 errors)
-                val errorBody = e.response()?.errorBody()?.string()  // Capture response body for debugging
+                val errorBody = e.response()?.errorBody()?.string()
                 withContext(Dispatchers.Main) {
                     Log.e(TAG, "HTTP error while fetching details for CallSign: $callSign - $errorBody", e)
                     Toast.makeText(this@FlightDetails, "Error: $errorBody", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                // Handle other exceptions
                 withContext(Dispatchers.Main) {
                     Log.e(TAG, "Unexpected error while fetching details for CallSign: $callSign", e)
                     Toast.makeText(this@FlightDetails, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -105,15 +101,14 @@ class FlightDetails : AppCompatActivity() {
     }
 
 
-    private val imageCache = mutableMapOf<String, String?>() // Cache for image URLs
+    private val imageCache = mutableMapOf<String, String?>()
 
     private fun updateUI(flightDetail: FlightDetailResponse) {
         Log.d("loggy", "Starting to update UI with flight details.")
 
-        // Check if the aircraft registration (reg) is null
         val reg = flightDetail.aircraft.reg?.toString() ?: run {
             Log.d("loggy", "Aircraft registration is null.")
-            return // Exit the function if reg is null
+            return
         }
         binding.aircraftmodel.text=flightDetail.aircraft.model
 

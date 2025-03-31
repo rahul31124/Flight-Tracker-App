@@ -15,7 +15,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun webCategoryDao(): WebsitesDao
 
-    // Custom Migration from version 1 to version 2
+
 
 
     companion object {

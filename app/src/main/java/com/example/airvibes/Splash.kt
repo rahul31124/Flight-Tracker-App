@@ -39,7 +39,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 @Preview(showBackground = true)
 @Composable
 fun AirVibesCard() {
-    // Main Constraint-like layout
 
     Box(
 
@@ -50,7 +49,7 @@ fun AirVibesCard() {
         ,
         contentAlignment = Alignment.Center
     ) {
-        // CardView equivalent
+
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -59,7 +58,6 @@ fun AirVibesCard() {
             backgroundColor = Color.White,
             elevation = 8.dp
         ) {
-            // LinearLayout equivalent
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -67,7 +65,7 @@ fun AirVibesCard() {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
-                // ImageView equivalent
+
                 Image(
                     painter = painterResource(id = R.drawable.radrrr),
                     contentDescription = "Logo",
@@ -77,9 +75,9 @@ fun AirVibesCard() {
                     contentScale = ContentScale.Fit
                 )
 
-                Spacer(modifier = Modifier.width(8.dp)) // Spacing between Image and Texts
+                Spacer(modifier = Modifier.width(8.dp))
 
-                // First TextView equivalent
+
                 Text(
                     text = "AIR ",
                     fontSize = 38.sp,
@@ -87,7 +85,6 @@ fun AirVibesCard() {
                     fontFamily = FontFamily(Font(R.font.merriweathersans_semibold))
                 )
 
-                // Second TextView equivalent
                 Text(
                     text = "VIBES",
                     fontSize = 38.sp,
@@ -125,13 +122,7 @@ class SplashActivity : AppCompatActivity() {
         }, 3000)
 
 
-        val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                // Add the new column "price" to the "webcategories" table
-                database.execSQL("ALTER TABLE webcategories ADD COLUMN price TEXT DEFAULT helo")
 
-            }
-        }
         categoryViewModel = CategoryViewModel(application)
         webCategoryViewModel=WebCategoryViewModel(application)
         CoroutineScope(Dispatchers.Main).launch {

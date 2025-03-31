@@ -35,6 +35,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val latitude = arguments?.getDouble("latitude") ?: 0.0
+        val longitude = arguments?.getDouble("longitude") ?: 0.0
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this) ?: run {
             Log.e("MapFragment", "Map Fragment is null")
@@ -44,11 +46,17 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Move the camera to a default location
-        val initialLocation = LatLng(30.0, 90.0) // Generic location
+        val latitude = arguments?.getDouble("latitude")
+        val longitude = arguments?.getDouble("longitude")
+
+        val initialLocation = if (latitude != null && longitude != null) {
+            LatLng(latitude, longitude)
+        } else {
+            LatLng(30.0, 90.0)
+        }
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, 3f))
 
-        // Start periodic flight data updates
+
         startFetchingFlightDataPeriodically()
 
 
@@ -61,9 +69,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private fun startFetchingFlightDataPeriodically() {
         lifecycleScope.launch {
-            while (true) { // Infinite loop for periodic updates
-                fetchAndDisplayFlights() // Fetch and update flight markers
-                delay(30000) // Pause for 30 seconds before the next update
+            while (true) {
+                fetchAndDisplayFlights()
+                delay(30000)
             }
         }
     }
@@ -73,44 +81,55 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private fun fetchAndDisplayFlights() {
         lifecycleScope.launch {
             try {
-                // Perform the network operation on the IO dispatcher
+                val latitude = arguments?.getDouble("latitude")
+                val longitude = arguments?.getDouble("longitude")
+                val lamin: Double
+                val lamax: Double
+                val lomin: Double
+                val lomax: Double
+
+                if (latitude != null && longitude != null) {
+                    lamin = latitude - 5.0
+                    lamax = latitude + 5.0
+                    lomin = longitude - 5.0
+                    lomax = longitude + 5.0
+                } else {
+                    lamin = 0.0
+                    lamax = 60.0
+                    lomin = 60.0
+                    lomax = 180.0
+                }
                 val response = withContext(Dispatchers.IO) {
                     RetrofitInstance.api.getFlights(
-                        lamin = 0.0, lamax = 60.0, lomin = 60.0, lomax = 180.0
+                        lamin = lamin, lamax = lamax, lomin = lomin, lomax = lomax
                     )
                 }
 
-                // Check if response is valid
                 if (response.states.isNullOrEmpty()) {
                     Log.w("MapFragment", "No flight data available.")
                     return@launch
                 }
 
-                // Prepare the list of MarkerOptions on a background thread
                 val markersToAdd = withContext(Dispatchers.Default) {
                     response.states.mapNotNull { state ->
                         try {
-                            // Safely extract latitude and longitude
                             val latitude = (state[6] as? Double) ?: return@mapNotNull null
                             val longitude = (state[5] as? Double) ?: return@mapNotNull null
 
-                            // Safely extract other fields
                             val callsign = (state[1] as? String) ?: "Unknown"
                             val direction = (state[10] as? Double) ?: 0.0
                             val velocity = (state[9] as? Double) ?: 0.0
                             val alt = (state[7] as? Double) ?: 0.0
 
-                            // Create position object
                             val position = LatLng(latitude, longitude)
 
-                            // Safely load and resize the bitmap
+
                             val resizedBitmap = BitmapFactory.decodeResource(resources, R.drawable.newmarkerairpplane)?.let {
                                 Bitmap.createScaledBitmap(it, (it.width * 0.05).toInt(), (it.height * 0.05).toInt(), false)
                             } ?: return@mapNotNull null
 
                             val markerIcon = BitmapDescriptorFactory.fromBitmap(resizedBitmap)
 
-                            // Create the MarkerOptions
                             val markerOptions = MarkerOptions()
                                 .position(position)
                                 .title("Flight: $callsign")
@@ -118,7 +137,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                                 .rotation(direction.toFloat())
                                 .flat(true)
 
-                            // Return the marker options and associated data (callsign, velocity)
+
                             Pair(markerOptions, Triple(callsign, velocity,alt))
 
                         } catch (e: Exception) {
@@ -128,21 +147,19 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                     }
                 }
 
-                // Update the map on the main thread
                 withContext(Dispatchers.Main) {
                     mMap.clear()
                     markersToAdd.forEach { pair ->
                         val marker = mMap.addMarker(pair.first)
-                        marker?.tag = pair.second // Set the tag with callsign and velocity
+                        marker?.tag = pair.second
                     }
                 }
 
-                // Set the marker click listener
+
                 mMap.setOnMarkerClickListener { marker ->
                     val (callsign, velocity, alt) = marker.tag as? Triple<String, Double, Double> ?: return@setOnMarkerClickListener false
-                    // Pass callsign, velocity, and alt to the showBottomSheet function
                     showBottomSheet(callsign, velocity, alt)
-                    true // Return true to indicate the click event is handled
+                    true
                 }
 
             } catch (e: Exception) {

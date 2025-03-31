@@ -13,7 +13,6 @@
         android:layout_marginTop="12dp"
         android:layout_height="55dp">
 
-        <!-- Back Button aligned to the left -->
 
 
         <ImageButton

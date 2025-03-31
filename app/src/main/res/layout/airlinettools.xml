@@ -6,6 +6,7 @@
         android:background="@drawable/edittextbg"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:elevation="10dp"
         android:orientation="vertical"
         android:padding="16dp">
 

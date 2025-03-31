@@ -19,7 +19,6 @@ class FlightDetailsBottomSheet : BottomSheetDialogFragment() {
         private const val ARG_VELOCITY = "velocity"
         private const val ARG_ALTITUDE="altitude"
 
-        // Create a new instance of the BottomSheet with the provided data
         fun newInstance(callsign: String, velocity: Double,altitude:Double): FlightDetailsBottomSheet {
             val fragment = FlightDetailsBottomSheet()
             val bundle = Bundle()
@@ -139,7 +138,7 @@ val website= airlineWebsiteMap[airline]
 
 
 
-// Convert altitude from meters to feet (1 meter = 3.28084 feet)
+
         alt?.text = "Altitude: ${"%.2f".format(altitude ?: 0.0)} m"
 
 
@@ -156,15 +155,14 @@ val website= airlineWebsiteMap[airline]
         val viewDetailsButton = view?.findViewById<ImageView>(R.id.vieewdetails)
 
         viewDetailsButton?.setOnClickListener {
-            // Get the callSign from your BottomSheet data
-            val callSign = arguments?.getString(ARG_CALLSIGN) // Assuming you have this value
+            val callSign = arguments?.getString(ARG_CALLSIGN)
 
-            // Create an Intent to start the FlightDetails activity
+
             val intent = Intent(requireContext(), FlightDetails::class.java).apply {
-                putExtra("CALLSIGN", callSign)  // Pass the callSign via Intent
+                putExtra("CALLSIGN", callSign)
             }
 
-            // Start the activity
+
             startActivity(intent)
         }
 

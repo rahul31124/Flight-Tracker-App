@@ -16,7 +16,7 @@ import com.google.android.material.imageview.ShapeableImageView
 
 class FlightAdapter(
     private var flightList: List<Flight>,
-    private val selectedAirline: String, // Pass selected airline as a parameter
+    private val selectedAirline: String,
     private val airlineWebsite: String?
 ) : RecyclerView.Adapter<FlightAdapter.FlightViewHolder>() {
 
@@ -36,7 +36,7 @@ class FlightAdapter(
         return FlightViewHolder(itemView)
     }
 
-    // Binding the data to the views
+
 
     override fun onBindViewHolder(holder: FlightViewHolder, position: Int) {
         val flight = flightList[position]
@@ -61,11 +61,11 @@ class FlightAdapter(
 
         }
 
-        // Log the constructed URL to verify it
+
         Log.d("FlightAdapteryyy", "Constructed Logo URL: $webss")
         val velocityKmH = flight.velocity * 3.6
         holder.speed.text = String.format("%.2f km/h", velocityKmH)
-        // Load the logo using Glide
+
         Glide.with(holder.itemView.context)
             .load(webss)
             .apply(RequestOptions.centerCropTransform())
@@ -73,11 +73,10 @@ class FlightAdapter(
     }
 
 
-    // Get the size of the data
+
     override fun getItemCount(): Int {
         return flightList.size
     }
 
-    // Method to update the flight list when filtered by the selected airline
 
 }
