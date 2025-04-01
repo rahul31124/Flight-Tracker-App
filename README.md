@@ -67,7 +67,7 @@
 |------------------------|--------------------|-----------------------|
 | ![Flight Ticket Search](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Flight%20Ticket%20Search.jpg) | ![ChromeTab](ChromeTab.jpg) | ![Aviation News](https://raw.githubusercontent.com/rahul31124/Flight-Tracker-App/main/Aviation%20News.jpg) |
 
-| ✈️ Flight Search     | ✈️ Airline Search    | ✈️ Airline Search 2   |
+| ✈️ Flight Search     | ✈️ Flight Search    | ✈️ Airline All Flights    |
 |----------------------|----------------------|-----------------------|
 | ![Airline Search](https://github.com/rahul31124/Flight-Tracker-App/blob/main/Airline%20search.jpg) | ![Airline Search 2](https://github.com/rahul31124/Flight-Tracker-App/blob/main/Airline%20Search..jpg) | ![Airline Search 3](Airlines2.jpg) |
 
